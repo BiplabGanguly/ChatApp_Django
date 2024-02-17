@@ -51,10 +51,11 @@ def chat_view(req):
         user_input = req.data.get('user_input') 
 
         if user_input:
-            completion = openai.Completion.create(
-                    engine="text-davinci-003",
-                    prompt="You are a helpful assistant.\nUser: Who won the world series in 2020?",
-                    max_tokens=100
+            completion = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "user", "content": user_input},
+                ]
             )
             data = completion['choices'][0]['message']['content'].strip()
             return Response(data)
