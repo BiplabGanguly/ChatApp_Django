@@ -7,7 +7,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.permissions import AllowAny
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 @api_view(['POST'])
 def signin(req):
